@@ -1,0 +1,361 @@
+*{
+    margin :0;
+    padding :0;
+}
+html{
+    font-size: 10px;
+}
+
+ul, li {
+    list-style: none;
+
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.board_wrap {
+    width: 1000px;
+    margin: 100px auto;
+}
+
+.board_title{
+    margin-bottom: 30px;
+}
+
+/* <strong> 태그는 해당 콘텐츠의 중요성이나 심각함, 긴급함 등을 강조할 때 사용합니다.
+브라우저는 일반적으로 <strong> 요소의 콘텐츠를 굵은 텍스트로 표현합니다. */
+/* <em> 태그는 강조된 텍스트(emphasized text)를 표현할 때 사용합니다. */
+/* rem-> 최상위 크기의 3배를 표현한다 . 최상위 테그는 html이다.
+따라서 위의 html 폰트크기가 10px로 선언했으니 3배를 하면 30px이된다. */
+.board_title strong {
+    font-size: 3rem;
+}
+
+.board_title p {
+
+    margin-top: 5px;
+    font-size: 1.4rem;
+}
+/* display : inline-block 자신만의 특징을 가지되 다른요소와 친구가 돼라. */
+/* 정확한 간격을위해서 부모의 텍스트 사이즈를 0으로 두는경우가 잦다. */
+/* 부모는 대상의 위치와 관련 자식은 대상의 속성과 관련이있다. */
+.bt_wrap {
+
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0;
+}
+
+.bt_wrap a {
+    display: inline-block;
+    min-width: 80px;
+    padding: 10px;
+    margin-left: 10px;
+    border: 1px solid black;
+    border-radius: 2px;
+    font-size: 1.4rem;
+}
+
+.bt_wrap a:first-child {
+    margin-left: 0;
+}
+
+.bt_wrap a.on {
+
+    background: black;
+    color: white;
+
+}
+
+.board_list{
+    width:100%;
+    border-top: 2px solid black;
+    
+}
+/* 보드리스트에 안에 있는 각 상위 <div>에 적용 > div로 표현 */
+.board_list > div {
+
+    border-bottom: 1px solid #ddd;
+    /*간격을 초기화하기 위해서 폰트사이즈를 0으로 맞추면 밑에 관련된것들이 그대로 상속을 받아서 전부 폰트사이즈가 0이 되어버린다.
+    따라서 board_list > div > div로 가보자  */
+    font-size: 0;
+
+
+}
+/* 보드리스트에 안에 있는 각 상위 <div>에 적용하는데 top부분만 적용 */
+.board_list > div.top{
+
+    border-bottom: 1px solid #999;
+    
+
+}
+
+.board_list > div:last-child {
+    border-bottom: 1px solid rgb(161, 148, 148);
+}
+
+.board_list a:hover{
+
+    text-decoration: underline; 
+
+}
+
+/*  보드리스트에 안에 있는 각 상위 <div>의 안에 있는 <div>에 적용 표현식 잘보기.
+간격을 초기화하기 위해서 부모의 폰트사이즈를 0으로 만들자. */
+
+.board_list > div > div {
+    /*.board_list > div > div여기서 텍스트를 키워보자 단 지금 부모뷰에서 폰트사이즈를 0으로 주었다.
+    그러면??? 여기서 폰트사이지를 키우자. 키워도 되는데 예제에서는 1.4rem으로 했다. 버튼에서 html크기를 이용해서 이것을 키워보자.   */
+
+    display: inline-block;
+    padding: 15px 0;
+    text-align: center;
+    font-size: 1.4rem;
+}
+/* .board_list > div.top >div == .board_list > div.top 아닌가????? */
+.board_list > div.top >div {
+
+    font-weight: 600;
+}
+
+.board_list .num {
+    width : 10%;
+}
+
+.board_list .title {
+    width : 60%;
+    /* text-align: left; */
+}
+
+.board_list .top .title {
+
+    text-align: center;    
+}
+
+.board_list .writer {
+    width : 10%;
+}
+
+.board_list .date {
+    width : 10%;
+}
+/* 참고로 이것이 속해있는 경로가 .board_list >div >div이다.
+따라서 이것의 부모는 .board_list > div이다. .board_list > div로 가보자 */
+.board_list .count {
+    width : 10%;
+}
+
+.board_page{
+    margin-top: 30px;
+    text-align: center;
+    /* 자식들의 간격 초기화 폰트사이즈를 0으로 하면된다. 
+    0으로 하면 당연히 텍스트들이 안보일거임 이건 다시 자식뷰로 가자*/
+        
+    font-size: 0;
+
+}
+
+.board_page a {
+    /* display : inline으로하면 속성값이 안먹힌다.
+       display : block으로하면 속성값이 먹히는데 자동 줄바꿈으로 세로로배치된다.
+       display : inline=block으로 하면 콘텐츠들이 가로로 배치되면서 그냥 inline에서 안먹히던 속성들이 먹히게된다. */
+       /* 지금 컨텐츠끼리 또 간격이 생기고 있다. 부모뷰, .board_page로 가보자  */
+       /* ---------------------------------------------------------------------------------------------------------- */
+       /* bt, num의 폰트가 달라야 되니까 또 스타일을 만들자  */
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    /* height의 값을 넘지 말아라 */
+    box-sizing: border-box;
+    border: 1px solid black;
+    border-left: 0;
+    vertical-align: middle;
+    line-height: 100%;
+    
+    
+}
+
+/* bt , num이랑 폰트사이즈가 다르게 표현하자 */
+
+.board_page a.bt {
+    
+    padding-top: 10px;
+    font-size: 1.2rem;
+    letter-spacing: -1px;
+
+}
+
+.board_page a.num {
+
+    padding-top: 8px;
+    font-size: 1.5rem;
+}
+
+.board_page a.num.on {
+
+    /* border-color: black;
+    background: black;
+    color: white; */
+}
+
+.board_page a:first-child{
+    border-left: 1px solid black;
+}
+
+.board_view {
+    width: 100%;
+    border-top: 1px solid black;
+    
+}
+
+.board_view .title {
+    padding: 20px 15px;
+    border-bottom: 1px dashed #ddd;
+    font-size: 2rem;
+}
+
+.board_view .info{
+    padding: 15px;
+    border-bottom: 1px solid #999;
+    /* font-size 0; 여백 초기화 */
+    /* font-size: 0; */
+}
+/* 부모에 포지션을 릴레이티브로 잡아준다. */
+
+.board_view .info dl {
+
+    display: inline-block;
+    padding:0 20px;
+    position: relative;
+
+}
+
+.board_view .info dl:first-child{
+    padding-left: 0;
+
+}
+/* 가상선택자 before공부하기 */
+/* absolute 공부하기 --> 부모의 위치에 따라서 선택적으로 정렬?? */
+/* 가상선택자의 부모는 .board_view .info dl 가보자 */
+.board_view .info dl::before {
+    content: "";
+    width: 1px;
+    height: 13px;
+    background: black;
+    display:block;
+    position: absolute;
+    top: 3;
+    left: 0;
+
+}
+
+.board_view .info dl:first-child::before {
+    display: none;
+}
+
+.board_view .info dl dt,
+.board_view .info dl dd {
+
+    display: inline-block;
+    font-size: 1.4rem;
+
+}
+
+.board_view .info dl dt{
+
+
+}
+
+.board_view .info dl dd {
+
+    margin-left: 10px;
+    color:black;
+    
+}
+
+.board_view .cont{
+    padding: 15px;
+    border-bottom: 1px solid black;
+    line-height: 160%;
+    font-size: 1.4rem;
+}
+
+.board_write{
+    border-top: 2px solid black;
+}
+
+.board_write .title,
+.board_write .info {
+    padding: 15px;
+}
+
+.board_write .info{
+    border-top: 1px dashed #ddd;
+    border-bottom: 1px solid black;
+
+    font-size: 0;
+}
+
+.board_write .title dt,
+.board_write .title dd,
+.board_write .info dt,
+.board_write .info dd {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 1.4rem;
+}
+
+.board_write .title dt,
+.board_write .info dt{
+    width: 100px;
+}
+
+.board_write .title input[type="text"],
+.board_write .info input[type="text"],
+.board_write .info input[type="password"] {
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+
+/* 제목 인풋값을 변경 css에서는 인풋타입을 지정해서 사용할수 있다.*/
+.board_write .title input[type="text"] {
+    width: 80%;
+}
+
+.board_write .title dl{
+    font-size: 0;
+}
+/* css 연산자 - 이거 좌우로 한칸 띄어서 사용한다. 진짜 이거 찾는데 3시간걸림. */
+.board_write .title dd {
+
+    width: calc(100% - 100px);
+}
+
+
+
+/* write파일을 보면 .board_write .info dl 이 경로에 글쓴이 </dl>과 비밀번호 <dl>이 만나는 지점에 개행이 되어 버렸다. 따라서 간격을 없애기위해 부모의 font-size를 0으로 주었다. */
+.board_write .info dl{
+    display: inline-block;
+    width: 50%;
+    vertical-align: middle;
+    
+}
+
+.board_write .cont {
+    border-bottom: 1px solid black;
+}
+/* 내용입력창 변경 */
+.board_write .cont textarea{
+    display: block;
+    width: 100%;
+    height: 300px;
+    padding: 15px;
+    box-sizing: border-box;
+    border: 0;
+    resize: vertical;
+}
+

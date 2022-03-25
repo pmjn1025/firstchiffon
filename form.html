@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!--서버로 데이터를 전송할 때 사용하는 HTML의 기능인 form을 살펴보자.  -->
+<body>
+    <!-- 데이터로 보내는 목적지 -->
+    <!-- 밑에 정리한 문제를 해결하려면 우리는 은밀한 방식으로 데이터를 전송해야한다 잘보기! -->
+    <!-- method를 생략하면 get(디폴트값)으로 전달한다.  -->
+    <form action="form.php" method="post">
+    <!-- 사용자로부터 정보를 입력받는 html의 테그 -> <input>이다.  -->
+    <!-- placeholder은 hint와 같은 역할 -->
+   <p><input type="text" name ="title" placeholder="Title"></p>
+   <p><textarea name="description"></textarea></p>
+
+    <!-- 정보를 전송할때 -->
+   <p><input type="submit"></p>
+</form>
+
+<!--정리하자면 get은 주소창(url)에 입력되어지는 값인데 문제가 있다. 전송이 가능하나 사용자가 form.html화면에 입력하면 주소창에 title = php description = php is ... 이라는 형식으로 form.php에게 전달한다. 하지만 다른 사용자가 링크를 받아서 복붙하게 되면 사용자가 입력하지 않은 데이터가 입력되게 된다.  -->
+
+<!--$_GET을 사용할때에는 입출력값과 관계가 없는 웹사이트를 찾아오게 할때 혹은 북마크에게 저장 다른사람에게 홈페이지 주소를 공유할때 적합한방식  -->
+
+
+    
+</body>
+</html>

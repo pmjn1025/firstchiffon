@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+  <title>WEB - CSS</title>
+  <meta charset="utf-8">
+  <!-- css를 사용하려면 <style>테그를 선언해주어야 한다.
+    그리고 style안의 문법은 css라는 언어로 작성된다. -->
+  <style>
+    a {
+      color:black;
+      text-decoration: none;
+    }
+
+    /* 적용 우선순위 
+    --> #(id선택자) > .(클래스선택자) > a(테그선택자)
+    id값은 단한개 즉 id abc는 a href="css.html" 단 한개 좀더 구체적인것이 포괄적인것보다 우선순위를 높였다. */
+
+    /* 위와 같이 saw와 active처럼 순서적으로 적용하면 별로 좋지 않다.
+    실수도 많고 오류가능성도 커진다 따라서 id값으로 구분하고
+    아이디를 구분하는 기호는 #이다 */
+    #abc {
+      color: seagreen;
+    }
+
+    /* saw라고 하면 body부분에 있는 모든 saw에 대해서 적용한다
+    그러나 .saw는 클래스로 선언된saw만 적용한다.  --> 붉은색적용*/
+    .saw {
+      color: gray;
+    }
+    .active{
+       color: red;
+    }
+    
+    h1{
+      font-size: 45px;
+      text-align:center;
+    }
+
+  </style>
+</head>
+<body>
+  <h1><a href="index.html">WEB</a></h1>
+  <ol>
+    <li><a href="1.html" class="saw">HTML</a></li>
+    <!-- saw가 먼저 실행되고 active가 실행된다. -->
+    <li><a href="css.html" class="saw active"id="abc" >CSS</a></li>
+    <li><a href="3.html"id="abc">JavaScript</a></li>
+  </ol>
+<!--
+  <h1><a href="index.html"><font color="red">WEB</font></a></h1>
+  <ol>
+    <li><a href="1.html"><font color="red">HTML</font></a></li>
+    <li><a href="2.html"><font color="red">CSS</font></a></li>
+    <li><a href="3.html"><font color="red">JavaScript</font></a></li>
+  </ol>
+-->
+  <h2>CSS</h2>
+  <p>
+    Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup
+    language.[1] Although most often used to set the visual style of web pages and user interfaces written in HTML and XHTML,
+    the language can be applied to any XML document, including plain XML, SVG and XUL, and is applicable to rendering in speech,
+    or on other media. Along with HTML and JavaScript, CSS is a cornerstone technology used by most websites to create visually
+    engaging webpages, user interfaces for web applications, and user interfaces for many mobile applications.
+  </p>
+  </body>
+  </html>

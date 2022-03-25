@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+/*table,caption /board_list_wrap,borad_list 둘다 테이블을 그려주는 것이지만 table은 이문서를 참조하는 모든 테이블 caption은 이문서를 참조하는 모든 caption을 동일하게 적용시켜준다.  */
+
+table {
+    border-collapse: collapse;
+}
+
+caption{
+    display: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+
+}
+/* 선택해서 사용하는 지정스타일 */
+/* 이렇게 클래스로 묶은것을 패딩을 주게 되면 상하좌우 다 여백이생긴다. */
+.board_list_wrap{
+    padding: 50px;
+
+}
+/* 선택해서 사용하는 지정스타일 */
+.borad_list{
+    width: 100%;
+    border-top: 2px solid brown;
+    color: black;
+
+}
+/*borad_list th와 borad_list td사이에 간격이 있는데 간격을 없애주기 위해서 table클래스를 만들어서 속성값으로 border-collapse: collapse;를 선언한다.  */
+.borad_list th,
+.borad_list td {
+    
+    font-size: 14px;
+    padding: 10px;
+
+}
+
+.borad_list tr {
+    border-bottom: 1px solid white;
+}
+
+.borad_list td{
+    text-align: center;
+}
+/* 중요 : borad list 안에 tbody가 있고 tbody안에 tr이있고 tr안에 td가 있는데 td의 두번째 요소가 제목이니까 nth-child(2)(n번째 있는 자식요소를 지정 */
+/*.borad_list tbody tr td:nth-child(2)
+.borad_list tbody tr td:nth-child(2):hover
+2의 구문이 tbody tr td:nth-child(2)중복된다 이것을 
+<td class="tit">로 묶어서 아래와 같이 된다.   */
+.borad_list .tit {
+    text-align: left;
+}
+
+/*hover : 이미지, 텍스트, 버튼 등에 마우스 포인터가 올라갔을 때 발동되는 일종의 전환효과  */
+.borad_list .tit:hover {
+    text-decoration: underline;
+
+}
+/* 간격초기화 팁 공부하기 */
+.board_list_wrap .paging {
+    margin-top: 20px;
+    font-size: 0;
+    text-align: center;
+}
+/* a테그는 디폴트값이 인라인이다. */
+.board_list_wrap .paging a {
+    display: inline-block;
+    margin-left: 10px;
+    /* 패딩값 순서 : 상하좌우 여기서는 2개니까 상하 5px 좌우10px */
+    padding: 5px 10px;
+       
+    font-size: 12px;
+    border-radius: 25px;
+}
+/* 2번째 부터는 nth-child(순서)이다. */
+.board_list_wrap .paging a:first-child {
+    margin-left:0;
+
+}
+
+/* 밑에 페이지에 숫자와 텍스트의 효과를 다르게 하고 싶으면 숫자대로 클래스로 묶고 텍스트는 텍스트대로 클래스를 묶자. */
+/* 클래스 붙일때 클래스들은 떨어져서 쓰고 a 테그는 띄어서 쓰지만 뒤에 있는 클래스는 붙여서 쓴다. */
+.board_list_wrap .paging a.bt {
+    border: 1px solid #eee;
+    /* background-color: #eee; */
+   
+    
+}
+
+.board_list_wrap .paging a.bt1 {
+    border: 1px solid white;
+    color:black;
+    
+    
+    
+}
+
+.board_list_wrap .paging a.num {
+    
+    border: 1px solid #fff;
+    /* 폰트 굵기. */
+    font-weight: 600;
+    border-radius: 0;
+    color:black;
+}
+/* 보드부터 num순서로 묶은다음 num중에서도 on인것을 아래와 같이 표현한다. */
+.board_list_wrap .paging a.num.on {
+    
+}

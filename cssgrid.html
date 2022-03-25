@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf8">
+        <title></title>
+        <style>
+          /*기억하자 id는 # class는 .을 앞에 붙인다.  */
+          #grid{
+            border: 5px solid red;
+            display: grid;
+            /* fr -> 리니어레이아웃 weight같은 화면상의 비율 */
+            grid-template-columns: 150px 1fr;
+
+          }  
+
+          div{
+             border: 5px solid gray; 
+          }      
+
+
+        </style>
+
+    </head>
+    <body>
+        <!-- 이 div는 부모 테그이다. -->
+        <div id="grid">
+           <!-- <div>tag는 화면 전체를 쓰기때문에 줄바꿈이 된다
+            <span>tag는 콘텐츠크기만큼 쓴다. -->
+            <div>NAVIGATION</div> 
+            <div>여러분은 id, class, descendant 기초를 알고 있겠죠. 과연 그게 전부일까요? 그렇다면, 여러분은 폭넓게 적용하지 못하고 있네요. 이 글에서 설명하는 선택자 중에 다수가 CSS3 명세서에 있으며 모던 브라우저에서만 적용할 수 있지만, 여러분이 이 선택자들을 열심히 암기하기 바랍니다.</div> 
+        </div>
+        
+
+    </body>
+</html>

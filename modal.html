@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>자바스크립트 예제 - 갤러리 오버레이 열기</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        /* body 스크롤 방지용 */
+        .stop-scroll{
+            height: 100%;
+            overflow: hidden;
+        }
+        h1{
+            text-align: center;
+        }
+        .container{
+            width: 600px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 10px auto;
+            cursor: pointer;
+        }
+        .thumbnail{
+            margin: 6px;
+        }
+
+        .thumbnail > img {
+            width: 250px;
+        }
+
+        #overlay{
+            position: fixed;
+            top:0; left:0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 999;
+            /* 시작시 보이지 않게 처리 */
+            visibility: hidden;
+            opacity: 0;
+            transition: all 0.5s;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+        /* 오버레이를 보여 줄때 사용 */
+        #overlay.show {
+            visibility: visible;
+            opacity: 1;
+        }
+        .photo{
+            width: 500px;
+            height: auto;
+            border:1px solid gray;
+            background: rgb(188, 240, 240);
+        }
+        .photo > img {
+            width: 100%;
+        }
+        .close {
+            width: 36px;
+            margin:0; padding: 0;
+            cursor: pointer;
+            margin: 8px auto;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>자바스크립트 예제 - 썸네일 클릭시 오버레이 띄우기</h1>
+    
+    <!-- overlay -->
+    <div id="overlay">
+        <div class="photo"></div>
+        <img class="close" src="img/close_white.png">
+    </div>
+
+    <!-- 썸네일 -->
+    <div class="container">
+        <div class="thumbnail" onclick="showBic(this)"><img src="img/photo01.jpg"><p>사진 설명</p></div>
+        <div class="thumbnail" onclick="showBic(this)"><img src="img/photo02.jpg"><p>호박</p></div>
+        <div class="thumbnail" onclick="showBic(this)"><img src="img/photo03.jpg"><p>낙엽</p></div>
+        <div class="thumbnail" onclick="showBic(this)"><img src="img/photo04.jpg"><p>도서관</p></div>
+        <div class="thumbnail" onclick="showBic(this)"><img src="img/photo05.jpg"><p>단풍</p></div>
+        <div class="thumbnail" onclick="showBic(this)"><img src="img/photo06.jpg"><p>가을</p></div>
+        <div class="thumbnail" onclick="showBic(this)"><img src="img/photo01.jpg"><p>사진 설명</p></div>
+        <div class="thumbnail" onclick="showBic(this)"><img src="img/photo02.jpg"><p>호박</p></div>
+        <div class="thumbnail" onclick="showBic(this)"><img src="img/photo03.jpg"><p>낙엽</p></div>
+        <div class="thumbnail" onclick="showBic(this)"><img src="img/photo04.jpg"><p>도서관</p></div>
+        <div class="thumbnail" onclick="showBic(this)"><img src="img/photo05.jpg"><p>단풍</p></div>
+        <div class="thumbnail" onclick="showBic(this)"><img src="img/photo06.jpg"><p>가을</p></div>
+    </div>
+    
+    <script>
+        const overlay = document.querySelector("#overlay");
+        const photoCon = document.querySelector(".photo");
+        const closeButton = document.querySelector(".close");
+
+        //위 방법은 너무 소모적이다. 그래서 ...
+        function showBic(e){//e에 클릭한 DOM 정보가 전달되어 온다.
+            const orgImage = e.querySelector("img").src;
+            const output = `<img src="${orgImage}"><p>${e.querySelector("p").innerHTML}</p>`;
+            photoCon.innerHTML = output;
+            overlay.classList.add("show");
+            //body 스클로 방지
+            document.body.classList.add("stop-scroll");
+        };
+
+
+        // 클로즈 버튼을 클릭하면 오버레이 show 클래스를 삭제해서 오버레이를 사라지게 함
+        closeButton.addEventListener('click', () => {
+            overlay.classList.remove("show");
+            document.body.classList.remove("stop-scroll");
+        });
+
+    </script>
+    
+</body>
+</html>
