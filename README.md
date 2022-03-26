@@ -1,17 +1,16 @@
 # firstchiffon
 기술스택
-BackEnd
-
-Python
-Flask
-MongoDB
-FrontEnd
-
+Front-end
 HTML
 CSS
 Javascript
 jQuery
-Hosting
+framework : Bootstrap;
 
+Back-end
+PHP
+MySQL
+
+Server
 AWS : EC2
 Ubuntu
